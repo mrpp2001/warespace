@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import User1 from "../icons/User1";
 import User2 from "../icons/User2";
 import Input from "./Input";
@@ -6,6 +6,34 @@ import Button from "./Button";
 import { IoIosArrowForward } from "react-icons/io";
 
 const FormSection = () => {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: ''
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert(`Thank you for submitting!\n
+      Name: ${formData.firstName} ${formData.lastName}\n
+      Email: ${formData.email}\n
+      Phone: ${formData.phone}`);
+    
+    // Reset form
+    setFormData({
+      firstName: '',
+      lastName: '',
+      email: '',
+      phone: ''
+    });
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
   return (
     <div className="flex flex-col item-center bg-white rounded-xl m-3.5 md:m-0 p-3 py-5 md:px-5">
       <p className="text-2xl font-semibold leading-tight">
@@ -13,9 +41,9 @@ const FormSection = () => {
       </p>
 
       <div className="flex flex-col md:flex-row md:w-full md:justify-between md:mt-3">
-        <div className="md:w-1/6 relative w-24 h-24 -space-x-4 p-2 self-center">
-          <User2 className="absolute w-12 h-12 rounded-full translate-x-9" />
-          <User1 className="absolute w-12 h-12 rounded-full" />
+        <div className="md:w-1/6 relative w-16 h-16 p-2 self-center">
+          <User2 className="absolute left-0 w-12 h-12 rounded-full translate-x-1/2" />
+          <User1 className="absolute left-3 w-12 h-12 rounded-full -translate-x-1/2" />
         </div>
 
         <p className="md:w-9/12 text-sm leading-tight text-center md:text-start">
@@ -24,12 +52,35 @@ const FormSection = () => {
         </p>
       </div>
 
+      <form onSubmit={handleSubmit}>
         <div className="flex flex-col gap-2 my-5">
-          <Input placeholder={"First name here"} />
-          <Input placeholder={"Last name here"} />
-          <Input placeholder={"Email here"} type="email" />
+          <Input 
+            name="firstName"
+            value={formData.firstName}
+            onChange={handleInputChange}
+            placeholder={"First name here"} 
+          />
+          <Input 
+            name="lastName"
+            value={formData.lastName}
+            onChange={handleInputChange}
+            placeholder={"Last name here"} 
+          />
+          <Input 
+            name="email"
+            type="email"
+            value={formData.email}
+            onChange={handleInputChange}
+            placeholder={"Email here"} 
+          />
           <div className="flex flex-col gap-0.5">
-            <Input placeholder={"Phone number"} type="number" />
+            <Input 
+              name="phone"
+              type="tel"
+              value={formData.phone}
+              onChange={handleInputChange}
+              placeholder={"Phone number"} 
+            />
             <p className="text-xs font-light text-gray-500 italic">
               (Just so we can remind you of your appt)
             </p>
@@ -38,6 +89,7 @@ const FormSection = () => {
 
         <div className="flex flex-col gap-2">
           <Button
+            type="submit"
             text="Step 2: Find a time that works"
             icon={<IoIosArrowForward className="text-xl" />}
           />
@@ -57,7 +109,8 @@ const FormSection = () => {
               </a>
             </p>
           </div>
-      </div>
+        </div>
+      </form>
     </div>
   );
 };
