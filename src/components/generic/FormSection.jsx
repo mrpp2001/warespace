@@ -7,7 +7,7 @@ import { IoIosArrowForward } from "react-icons/io";
 
 const FormSection = () => {
   return (
-    <div className="w-full flex flex-col item-center bg-white rounded-xl m-3.5 md:m-0 p-3 py-5 md:px-5">
+    <div className="flex flex-col item-center bg-white rounded-xl m-3.5 md:m-0 p-3 py-5 md:px-5">
       <p className="text-2xl font-semibold leading-tight">
         Visit for an in-person tour
       </p>
@@ -44,7 +44,7 @@ const FormSection = () => {
 
           <p className="text-sm">
             Questions? Give us a call:{" "}
-            <a href="#" className="text-[#00AA6C]">
+            <a href="#" className="text-[#00AA6C] underline">
               415-985-0940
             </a>
           </p>

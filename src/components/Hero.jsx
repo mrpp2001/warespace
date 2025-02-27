@@ -108,7 +108,7 @@ const Hero = () => {
           </p>
         </div>
 
-        <div className="md:w-1/2">
+        <div className="w-full md:w-1/2">
           <FormSection />
         </div>
       </div>
