@@ -8,6 +8,9 @@ import TrollyIcon from "./icons/TrollyIcon";
 import KeyIcon from "./icons/KeyIcon";
 import Features from "./generic/Features";
 import GoogleRating from "./icons/GoogleRating";
+import Button from "./generic/Button";
+import { IoIosArrowForward } from "react-icons/io";
+import FormSection from "./generic/FormSection";
 
 const Hero = () => {
   return (
@@ -22,7 +25,7 @@ const Hero = () => {
       </div>
 
       <div className="mx-6 mt-10 flex flex-col gap-5">
-<GoogleRating/>
+        <GoogleRating />
 
         <p className="text-2xl font-semibold leading-none">
           Small warehouse space for rent in{" "}
@@ -46,7 +49,13 @@ const Hero = () => {
             body="Move in today!"
           />
         </div>
+
+        <Button text="Ask about a space" icon={<IoIosArrowForward className="text-xl"/>} />
+
+        <p className="text-lg font-semibold text-[#00AA6C] leading-tight">200-2,000 sq ft starting as low as $625/month</p>
       </div>
+
+      <FormSection/>
     </div>
   );
 };
