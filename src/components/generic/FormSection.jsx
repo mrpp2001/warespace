@@ -4,8 +4,10 @@ import User2 from "../icons/User2";
 import Input from "./Input";
 import Button from "./Button";
 import { IoIosArrowForward } from "react-icons/io";
+import CustomAlert from './CustomAlert';
 
 const FormSection = () => {
+  const [showAlert, setShowAlert] = useState(false);
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -15,12 +17,11 @@ const FormSection = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert(`Thank you for submitting!\n
-      Name: ${formData.firstName} ${formData.lastName}\n
-      Email: ${formData.email}\n
-      Phone: ${formData.phone}`);
-    
-    // Reset form
+    setShowAlert(true);
+  };
+
+  const closeAlert = () => {
+    setShowAlert(false);
     setFormData({
       firstName: '',
       lastName: '',
@@ -36,6 +37,7 @@ const FormSection = () => {
 
   return (
     <div className="flex flex-col item-center bg-white rounded-xl m-3.5 md:m-0 p-3 py-5 md:px-5">
+      {showAlert && <CustomAlert data={formData} onClose={closeAlert} />}
       <p className="text-2xl font-semibold leading-tight">
         Visit for an in-person tour
       </p>
