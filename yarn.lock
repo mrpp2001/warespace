@@ -1843,6 +1843,11 @@ lru-cache@^5.1.1:
   dependencies:
     yallist "^3.0.2"
 
+lucide@^0.476.0:
+  version "0.476.0"
+  resolved "https://registry.yarnpkg.com/lucide/-/lucide-0.476.0.tgz#453da7f6c0438e6f5a381c6d3251891a1a1b32a2"
+  integrity sha512-Hq4Q0Rioa2YeIeJU0Hqt0T1M5uBt/K52KaXUg9iGbnqhcIGQt+9Ttht9u0041bkr4ITDQOtYoy5eBsZvFIAvLQ==
+
 math-intrinsics@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/math-intrinsics/-/math-intrinsics-1.1.0.tgz#a0dd74be81e2aa5c2f27e65ce283605ee4e2b7f9"
